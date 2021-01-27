@@ -35,6 +35,18 @@ class LinkedList:
             last = last.next
 
         last.next = new_node
+        
+    #Inserting node at specific position
+    def insertInbtw(self,data,p):
+        new_node=Node(data) 
+        c=1
+        temp_node=self.head
+        while(c!=p):
+            pre_node=temp_node
+            temp_node=temp_node.next
+            c=c+1
+        pre_node.next=new_node
+        new_node.next=temp_node
 
     # Deleting a node
     def deleteNode(self, position):
@@ -66,7 +78,7 @@ class LinkedList:
         temp_node.next = None
         temp_node.next = next
 #--------------------------------------------------------------------------------------------------------------------end of abdul
-   def printList(self):
+    def printList(self):
         temp_node = self.head
         while (temp_node):
             print(str(temp_node.item) + "--> ", end="")
@@ -91,9 +103,13 @@ if __name__ == '__main__':
             data=input("enter data:")
             llist.insertAtEnd(data)
         elif ind==3:
+            data=input("enter data:")
+            p=int(input("enter postion:"))
+            llist.insertInbtw(data,p)
+        elif ind==4:
             data=int(input("enter position:"))
             llist.deleteNode(data)
-        elif ind==4:
-            llist.printList()
         elif ind==5:
+            llist.printList()
+        elif ind==6:
             status=False
